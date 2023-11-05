@@ -1,0 +1,17 @@
+version: '3.7'
+
+services:
+  react:
+    build:
+      context: .
+    image: react
+    command: npm run start
+    tty: true
+    ports:
+      - 3000:3000
+    volumes:
+      - ./src:/app/src:delegated
+      - ./public:/app/public:delegated
+      - ./server.js:/app/server.js:delegated
+      - ./builder.js:/app/builder.js:delegated
+
